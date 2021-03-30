@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PEngine">
+      <UniqueIdentifier>{CB5CE7BA-373C-6656-4054-F12CACB2CCB7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PEngine\Events">
+      <UniqueIdentifier>{4F56315D-3B24-2563-24B8-9589102501C8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\PEngine.h" />
+    <ClInclude Include="src\PEngine\App.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Core.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\EntryPoint.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Events\ApplicationEvent.h">
+      <Filter>PEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Events\Event.h">
+      <Filter>PEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Events\KeyEvent.h">
+      <Filter>PEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Events\MouseEvent.h">
+      <Filter>PEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\Log.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\PEngine\App.cpp">
+      <Filter>PEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PEngine\Log.cpp">
+      <Filter>PEngine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
