@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace PE
 {
 	class PE_API MouseMovedEvent : public Event
