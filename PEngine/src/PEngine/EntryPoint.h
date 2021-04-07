@@ -4,6 +4,7 @@
 
 extern PE::App* PE::CreateApp();
 
+/* Essentially the Main function */
 int main(int argc, char** argv)
 {
 	PE::Log::Init();

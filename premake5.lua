@@ -10,6 +10,12 @@ workspace "PEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-${cfg.architecture}"
 
+-- Include directories relative to root folder (Solution Directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "PEngine/vendor/GLFW/include"
+
+include "PEngine/vendor/GLFW"
+
 project "PEngine"
 	location "PEngine"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "PEngine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
