@@ -7,6 +7,12 @@
     <Filter Include="PEngine\Events">
       <UniqueIdentifier>{4F56315D-3B24-2563-24B8-9589102501C8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\PEngine.h" />
@@ -31,21 +37,39 @@
     <ClInclude Include="src\PEngine\Events\MouseEvent.h">
       <Filter>PEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\PEngine\Layer.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PEngine\LayerStack.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\PEngine\Log.h">
       <Filter>PEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\PEngine\Window.h">
+      <Filter>PEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\pepch.h" />
-    <ClInclude Include="src\PEngine\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PEngine\App.cpp">
       <Filter>PEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\PEngine\Layer.cpp">
+      <Filter>PEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PEngine\LayerStack.cpp">
+      <Filter>PEngine</Filter>
+    </ClCompile>
     <ClCompile Include="src\PEngine\Log.cpp">
       <Filter>PEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\pepch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

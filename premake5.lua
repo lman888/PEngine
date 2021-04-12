@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-${cfg.architecture}"
 -- Include directories relative to root folder (Solution Directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "PEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "PEngine/vendor/Glad/include"
 
 include "PEngine/vendor/GLFW"
+include "PEngine/vendor/Glad"
 
 project "PEngine"
 	location "PEngine"
@@ -37,12 +39,14 @@ project "PEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "PEngine"
 		defines
 		{
 			"PE_PLATFORM_WINDOWS",
-			"PE_BUILD_DLL"
+			"PE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -64,15 +69,18 @@ project "PEngine"
 
 		filter "configurations:Release"
 			defines "PE_RELEASE"
+			buildoptions "/MD"
 			optimize "On"
 
 		filter "configurations:Debug"
 			defines "PE_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 
 		filter "configurations:Dist"
 			defines "PE_DIST"
+			buildoptions "/MD"
 			symbols "On"
 
 
@@ -117,6 +125,7 @@ project "Sandbox"
 
 		filter "configurations:Debug"
 			defines "PE_DEBUG"
+			buildoptions "/MDd"
 			symbols "On"
 
 

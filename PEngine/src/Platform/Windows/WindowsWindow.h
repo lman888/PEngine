@@ -1,7 +1,7 @@
 #pragma once
 
 #include "PEngine/Window.h"
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 
 namespace PE
 {

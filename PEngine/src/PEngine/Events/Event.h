@@ -3,6 +3,7 @@
 #include "PEngine/Core.h"
 
 #include <string>
+#include <sstream>
 #include <functional>
 
 namespace PE
@@ -48,7 +49,7 @@ namespace PE
 		{
 			return GetCategoryFlags() & a_category;
 		}
-	protected:
+
 		/* Sees if an event has been handled */
 		bool m_handled = false;
 	};
