@@ -2,6 +2,7 @@
 
 #include "App.h"
 #include "PEngine/Log.h"
+#include "PEngine/Input.h"
 
 #include <glad/glad.h>
 
@@ -10,8 +11,13 @@ namespace PE
 
 #define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
 
+	App* App::s_instance = nullptr;
+
 	App::App()
 	{
+		PE_CORE_ASSERT(!s_instance, "Application already exists!");
+		s_instance = this;
+
 		m_window = std::unique_ptr<Window>(Window::Create());
 		/* EventCallback (used for events that happens to our window such as closing, resizing etc..) */
 		m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
@@ -41,7 +47,7 @@ namespace PE
 		m_dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
 		/* Prints what Event is currently occuring*/
-		PE_CORE_TRACE("{0}", a_event);
+		//PE_CORE_TRACE("{0}", a_event);
 
 		for (auto it = m_layerStack.end(); it != m_layerStack.begin();)
 		{
@@ -56,11 +62,13 @@ namespace PE
 	void App::PushLayer(Layer* a_layer)
 	{
 		m_layerStack.PushLayer(a_layer);
+		a_layer->OnAttach();
 	}
 
 	void App::PushOverlay(Layer* a_layer)
 	{
 		m_layerStack.PushOverlay(a_layer);
+		a_layer->OnAttach();
 	}
 
 	bool App::OnWindowClose(WindowCloseEvent& a_e)

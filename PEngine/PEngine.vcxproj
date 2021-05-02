@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>pepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PE_PLATFORM_WINDOWS;PE_BUILD_DLL;GLFW_INCLUDE_NONE;PE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>pepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PE_PLATFORM_WINDOWS;PE_BUILD_DLL;GLFW_INCLUDE_NONE;PE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>pepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PE_PLATFORM_WINDOWS;PE_BUILD_DLL;GLFW_INCLUDE_NONE;PE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -156,18 +156,27 @@
     <ClInclude Include="src\PEngine\Events\Event.h" />
     <ClInclude Include="src\PEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\PEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\PEngine\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\PEngine\Input.h" />
+    <ClInclude Include="src\PEngine\KeyCodes.h" />
     <ClInclude Include="src\PEngine\Layer.h" />
     <ClInclude Include="src\PEngine\LayerStack.h" />
     <ClInclude Include="src\PEngine\Log.h" />
+    <ClInclude Include="src\PEngine\MouseButtonCodes.h" />
     <ClInclude Include="src\PEngine\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\pepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PEngine\App.cpp" />
+    <ClCompile Include="src\PEngine\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\PEngine\Layer.cpp" />
     <ClCompile Include="src\PEngine\LayerStack.cpp" />
     <ClCompile Include="src\PEngine\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\pepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -179,6 +188,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

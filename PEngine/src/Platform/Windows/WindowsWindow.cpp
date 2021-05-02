@@ -129,6 +129,14 @@ namespace PE
 			}
 		});
 
+		glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			/* Returns a void pointer to the Data struct of our Window */
+			WindowData& m_data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(keycode);
+			m_data.EventCallback(event);
+		});
+
 		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods)
 		{
 			/* Returns a void pointer to the Data struct of our Window */

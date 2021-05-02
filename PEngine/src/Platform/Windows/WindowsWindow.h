@@ -21,6 +21,8 @@ namespace PE
 		void SetVSync(bool a_enabled);
 		bool IsVSync() const;
 
+		inline virtual void* GetNativeWindow() const { return m_window; }
+
 	private:
 
 		virtual void Init(const WindowProps& a_props);

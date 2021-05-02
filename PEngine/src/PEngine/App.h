@@ -20,11 +20,15 @@ namespace PE
 		void PushLayer(Layer* a_layer);
 		void PushOverlay(Layer* a_layer);
 
+		inline static App& Get(){return *s_instance; }
+		inline Window& GetWindow() { return *m_window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& a_e);
 		std::unique_ptr<Window> m_window;
 		bool m_running;
 		LayerStack m_layerStack;
+	private:
+		static App* s_instance;
 	};
 
 	/* To be defined in Client */

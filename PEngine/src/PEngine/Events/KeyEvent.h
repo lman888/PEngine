@@ -58,4 +58,23 @@ namespace PE
 		EVENT_CLASS_TYPE(KeyReleased)
 
 	};
+
+	class PE_API KeyTypedEvent : public KeyEvent
+	{
+	private:
+		int m_repeatCount;
+
+	public:
+		KeyTypedEvent(int a_keyCode)
+			: KeyEvent(a_keyCode) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypedEvent: " << m_keyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }

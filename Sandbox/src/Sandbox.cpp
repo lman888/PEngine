@@ -11,12 +11,17 @@ public:
 
 	void OnUpdate() override
 	{
-		PE_INFO("ExampleLayer::Update");
+		if (PE::Input::IsKeyPressed(PE_KEY_TAB))
+			PE_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(PE::Event& a_event) override
 	{
-		PE_TRACE("{0}", a_event);
+		if (a_event.GetEventType() == PE::EventType::KeyPressed)
+		{
+			PE::KeyPressedEvent& e = (PE::KeyPressedEvent&)a_event;
+			PE_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 
 };
@@ -28,6 +33,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new PE::ImGuiLayer());
 	}
 	~Sandbox()
 	{

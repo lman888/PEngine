@@ -7,8 +7,14 @@
     <Filter Include="PEngine\Events">
       <UniqueIdentifier>{4F56315D-3B24-2563-24B8-9589102501C8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PEngine\ImGui">
+      <UniqueIdentifier>{35FE7277-A1BE-EEAD-6AF9-372BD678338A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\PEngine\Events\MouseEvent.h">
       <Filter>PEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\PEngine\ImGui\ImGuiLayer.h">
+      <Filter>PEngine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\PEngine\Layer.h">
       <Filter>PEngine</Filter>
     </ClInclude>
@@ -49,14 +58,24 @@
     <ClInclude Include="src\PEngine\Window.h">
       <Filter>PEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\pepch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\PEngine\Input.h" />
+    <ClInclude Include="src\PEngine\KeyCodes.h" />
+    <ClInclude Include="src\PEngine\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PEngine\App.cpp">
       <Filter>PEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PEngine\ImGui\ImGuiLayer.cpp">
+      <Filter>PEngine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\PEngine\Layer.cpp">
       <Filter>PEngine</Filter>
@@ -67,9 +86,13 @@
     <ClCompile Include="src\PEngine\Log.cpp">
       <Filter>PEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\pepch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
