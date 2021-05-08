@@ -4,3 +4,6 @@
 [submodule "PEngine/vendor/glfw"]
 	path = PEngine/vendor/glfw
 	url = https://github.com/lman888/glfw
+[submodule "PEngine\\vendor\\glm"]
+	path = PEngine\\vendor\\glm
+	url = https://github.com/g-truc/glm

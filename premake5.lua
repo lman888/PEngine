@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "PEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "PEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "PEngine/vendor/imgui"
+IncludeDir["glm"] = "PEngine/vendor/glm"
 
 include "PEngine/vendor/GLFW"
 include "PEngine/vendor/Glad"
@@ -34,7 +35,9 @@ project "PEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -43,6 +46,7 @@ project "PEngine"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}"
 	}
 
@@ -105,6 +109,7 @@ project "Sandbox"
 	includedirs
 	{
 		"PEngine/vendor/spdlog/include",
+		"%{IncludeDir.glm}",
 		"PEngine/src"
 	}
 
