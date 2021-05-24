@@ -67,7 +67,8 @@ project "PEngine"
 		{
 			"PE_PLATFORM_WINDOWS",
 			"PE_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
+			"GLFW_INCLUDE_NONE",
+			"DLL_EXPORT=1"
 		}
 
 		postbuildcommands
@@ -96,10 +97,11 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
-
+	
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -110,7 +112,8 @@ project "Sandbox"
 	{
 		"PEngine/vendor/spdlog/include",
 		"%{IncludeDir.glm}",
-		"PEngine/src"
+		"PEngine/src",
+		"PEngine/vendor"
 	}
 
 	links

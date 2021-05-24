@@ -19,6 +19,8 @@ namespace PE
 		virtual void OnDetach() {}
 		/* When a Layer is updated */
 		virtual void OnUpdate() {}
+		/* When any ImGui Rendering occurs */
+		virtual void OnImGuiRender() {}
 		/* When an event gets sent to the layer, it gets recieved here */
 		virtual void OnEvent(Event& a_event) {}
 

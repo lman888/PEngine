@@ -22,6 +22,9 @@ namespace PE
 		/* EventCallback (used for events that happens to our window such as closing, resizing etc..) */
 		m_window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	void App::Run()
@@ -34,6 +37,11 @@ namespace PE
 
 			for (Layer* layer : m_layerStack)
 				layer->OnUpdate();
+
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_layerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_window->OnUpdate();
 		}

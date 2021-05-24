@@ -14,23 +14,12 @@ namespace PE
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach();
-		void OnUpdate();
-		void OnEvent(Event& a_event);
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnImGuiRender() override;
 
-	private:
-	bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& a_event);
-	bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& a_event);
-	bool OnMouseMovedEvent(MouseMovedEvent& a_event);
-	bool OnMouseScrolledEvent(MouseScrolledEvent& a_event);
-	bool OnKeyPressedEvent(KeyPressedEvent& a_event);
-	bool OnKeyReleasedEvent(KeyReleasedEvent& a_event);
-	bool OnKeyTypedEvent(KeyTypedEvent& a_event);
-	bool OnWindowResizedEvent(WindowResizeEvent& a_event);
-	static void SetClipboardText(void* a_data, const char* a_text);
-	static const char* GetClipboardText(void* a_data);
-
+		void Begin();
+		void End();
 	private:
 		float m_Time = 0.0f;
 	};
